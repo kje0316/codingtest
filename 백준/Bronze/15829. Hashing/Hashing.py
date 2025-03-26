@@ -2,13 +2,11 @@
 import string
 L = int(input()) #문자열의 길이 
 text = input() #영문 소문자
+M = 1234567891 #소수
 alpha = [i for i in string.ascii_lowercase]
-num = list(range(1,27))
-alpha_dict = {i:n for i, n in zip(alpha,num)}
-hash = []
-for t in text:
-    hash.append(alpha_dict[t]) #입력된 문자열의 숫자 입력
 score = 0
-for i, j in enumerate(hash): #[2, 5, 8]이라면 0, 2/2,5
-    score += (j * 31**i)
+for i in range(L): # 0, 1, 2
+    index = alpha.index(text[i]) #z
+    score += (index+1)*(31**i)
+score = score %M
 print(score)
